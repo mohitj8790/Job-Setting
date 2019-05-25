@@ -1,0 +1,150 @@
+﻿<Window x:Class="LayoutCustomization.colorManagementTab"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LayoutCustomization"
+        mc:Ignorable="d"
+        Title="colorManagementTab" Height="600" Width="370" ResizeMode="NoResize">
+    <Grid>
+        <Grid Name="CMYKGrid" Width="350" Height="110" VerticalAlignment="Top" >
+            <TextBlock Text="CMYK" FontSize="12" VerticalAlignment="Top" Margin="12,0,0,0"/>
+            <Grid Margin="12,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="255*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Vector:" Margin="0,15,0,0"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" Background="White">
+                    <ComboBoxItem IsSelected="True">sRGB IEC61966-2</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Raster:" Margin="0,5,0,0" />
+                <ComboBox Grid.Row="1" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">ACES CG Linear</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+
+            </Grid>
+            <Polyline Points="10,0 0,0 0,100 345,100 345,0 48,0" Stroke="LightGray" StrokeThickness="1" Margin="0,10,0,0"  >
+            </Polyline>
+
+        </Grid>
+
+        <Grid Name="RGBGrid" Width="350" Height="110" VerticalAlignment="Top" Margin="0,120,0,0" >
+            <TextBlock Text="RGB" FontSize="12" VerticalAlignment="Top" Margin="12,0,0,0"/>
+            <Grid Margin="12,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="255*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Vector:" Margin="0,15,0,0"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" Background="White">
+                    <ComboBoxItem IsSelected="True">U.S. Web Coated v2</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Raster:" Margin="0,5,0,0" />
+                <ComboBox Grid.Row="1" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">CIE RGB</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+
+            </Grid>
+            <Polyline Points="10,0 0,0 0,100 345,100 345,0 48,0" Stroke="LightGray" StrokeThickness="1" Margin="0,10,0,0"  >
+            </Polyline>
+
+        </Grid>
+        <CheckBox Margin="0,240,0,0" IsChecked="True">Use Embedded ICC Profile</CheckBox>
+        <Grid Name="renderingIntentGrid" Width="350" Height="110" VerticalAlignment="Top" Margin="0,265,0,0" >
+            <TextBlock Text="Rendering Intent" FontSize="12" VerticalAlignment="Top" Margin="12,0,0,0"/>
+            <Grid Margin="12,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="255*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Vector:" Margin="0,15,0,0"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" Background="White">
+                    <ComboBoxItem IsSelected="True">Colorimetric</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Raster:" Margin="0,5,0,0" />
+                <ComboBox Grid.Row="1" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">Absolute Colorimetric</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+
+            </Grid>
+            <Polyline Points="10,0 0,0 0,100 345,100 345,0 105,0" Stroke="LightGray" StrokeThickness="1" Margin="0,10,0,0"  >
+            </Polyline>
+
+        </Grid>
+        <Grid Name="ditheringGrid" Width="350" Height="50" VerticalAlignment="Top" Margin="0,380,0,0" >
+
+            <Grid Margin="12,15,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="255*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock  Grid.Column="0" Text="Dithering:" VerticalAlignment="Center" />
+                <ComboBox  Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" Background="White">
+                    <ComboBoxItem IsSelected="True">Mutoh</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+        </Grid>
+        <Grid Name="Grid" Width="350" Height="100" VerticalAlignment="Top" Margin="0,430,0,0" >
+
+            <Grid Margin="12,15,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="67*"/>
+                    <ColumnDefinition Width="102*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Use Pure Color for:"/>
+                <CheckBox Grid.Row="1" Grid.Column="0">Cyan</CheckBox>
+                <CheckBox Grid.Row="1" Grid.Column="1">Magenta</CheckBox>
+                <CheckBox Grid.Row="2" Grid.Column="0">Yellow</CheckBox>
+                <CheckBox Grid.Row="2" Grid.Column="1">Black</CheckBox>
+                
+
+            </Grid>
+        </Grid>
+
+
+
+
+    </Grid>
+
+
+
+</Window>

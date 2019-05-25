@@ -1,0 +1,75 @@
+﻿<Window x:Class="LayoutCustomization.spotColorsTab"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LayoutCustomization"
+        mc:Ignorable="d"
+        Title="spotColorsTab" Height="600" Width="370">
+    <Grid>
+        <Grid  Width="350" Height="130" VerticalAlignment="Top" >
+            <Grid Margin="12,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="60*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="255*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Vector:" />
+                <ComboBox Grid.Row="0" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" Background="White" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">sRGB IEC61966-2</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Raster:"  />
+                <ComboBox Grid.Row="1" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">ACES CG Linear</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Raster:"  />
+                <ComboBox Grid.Row="2" Grid.Column="1" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">ACES CG Linear</ComboBoxItem>
+                    <ComboBoxItem>item1</ComboBoxItem>
+                    <ComboBoxItem>item2</ComboBoxItem>
+                    <ComboBoxItem>item3</ComboBoxItem>
+                </ComboBox>
+
+            </Grid>
+        </Grid>
+        <Grid Name="colorChannelGrid" Width="350" Height="400" VerticalAlignment="Top" Margin="0,135,0,0">
+            <TextBlock Text="Color Channel (10)" FontSize="12" VerticalAlignment="Top" Margin="12,0,0,0"/>
+            <Grid Margin="12,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22*"/>
+                    
+                    <RowDefinition Height="33*"/>
+                    <RowDefinition Height="33*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="23*"/>
+                    <RowDefinition Height="27*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="43*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="61*"/>
+                    <ColumnDefinition Width="141*"/>
+                    <ColumnDefinition Width="137*"/>
+                </Grid.ColumnDefinitions>
+                
+
+            </Grid>
+            <Polyline Points="10,0 0,0 0,380 345,380 345,0 110,0" Stroke="LightGray" StrokeThickness="1" Margin="0,10,0,0"  >
+            </Polyline>
+
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,30 @@
+﻿<Application x:Class="LayoutCustomization.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:LayoutCustomization"
+             StartupUri="PreviewSetting.xaml">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="backGroundColor" Color="#DCDCDC"/>
+        <SolidColorBrush x:Key="textForeColorResource" Color="Black"/>
+
+        <SolidColorBrush x:Key="tabBorderColorResource" Color="LightGray"/>
+        <SolidColorBrush x:Key="tabColorResource" Color="LightGray"/>
+
+        <SolidColorBrush x:Key="textboxBorderColorResource" Color="White"/>
+        <SolidColorBrush x:Key="textboxBgColorResource" Color="White"/>
+
+        <SolidColorBrush x:Key="buttonBgColorResource" Color="LightGray"/>
+        <SolidColorBrush x:Key="buttonBorderColorResource" Color="Gray"/>
+
+        <SolidColorBrush x:Key="comboBoxBgColorResource" Color="White"/>
+
+        <SolidColorBrush x:Key="menuBorderColorResource" Color="LightGray"/>
+        <SolidColorBrush x:Key="menuBgColorResource" Color="White"/>
+
+        <SolidColorBrush x:Key="sideMenuBgColorResource" Color="Transparent"/>
+        <SolidColorBrush x:Key="sideMenuBorderColorResource" Color="LightGray"/>
+        
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,556 @@
+﻿<Window x:Class="LayoutCustomization.PreviewSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LayoutCustomization"
+        mc:Ignorable="d"
+        Title="PreviewSetting" Height="860" Width="1380" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style
+            x:Key="SpacedTab"
+            
+            
+            TargetType="{x:Type TabItem}">
+            <Setter
+            Property="Template">
+                <Setter.Value>
+                    <ControlTemplate
+                    TargetType="{x:Type TabItem}">
+                        <Border
+                        x:Name="Spacer"
+                        Width="115"
+                        Height="40"
+                        Padding="0 0 5 0"
+                        
+                        BorderBrush="{DynamicResource tabBorderColorResource}"
+                        BorderThickness="0">
+                            <Border
+                            x:Name="Border"
+                            MinWidth="105"
+                            Width="auto"
+                            Height="20"
+                            Background="{DynamicResource tabColorResource}"
+                            HorizontalAlignment="Center"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1,1,1,0"
+                            CornerRadius="6,6,0,0"
+                            Cursor="Hand"
+                            VerticalAlignment="Bottom" Margin="0,0,5,0">
+                                <ContentPresenter
+                                x:Name="ContentSite"
+                                TextElement.FontSize="11"
+                                TextElement.FontFamily="arial"
+                                TextElement.FontWeight="Thin"   
+                                TextElement.Foreground="{DynamicResource textForeColorResource}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                ContentSource="Header"
+                                Width="Auto"
+                                Height="Auto" />
+
+                            </Border>
+
+                        </Border>
+                        <ControlTemplate.Triggers >
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="White" />
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+
+    </Window.Resources>
+    <Grid Background="{DynamicResource backGroundColor}"  >
+
+
+
+        <TabControl Name="tabControl" BorderThickness="0"  >
+
+            <TabItem Name="generalProperties"
+                     Header="General"
+                     Margin="25,0,-19,0"
+                     Style="{StaticResource SpacedTab}">
+                <Grid Background="White">
+                    <Grid Name="settingName"
+                      Width="320"
+                      Height="250"
+                      HorizontalAlignment="Left" Margin="25,25,0,-4"
+                      VerticalAlignment="Top"
+                      >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="60*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                               Name="jobIdName"
+                               VerticalAlignment="Stretch"
+                               HorizontalAlignment="Left"
+                               
+                               Text="Job Id:" Height="28" Margin="0,18,0,5"  />
+                        <Label BorderBrush="DarkGray" BorderThickness="1" Name="jobIdLabel" Grid.Row="0" Grid.Column="1"
+                           Content="1000101-AB-14586" Height="25"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom" Margin="0,0,0,10"
+                      />
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                               Name="memoName"
+                               Text="Memo:"
+                               />
+                        <TextBox Grid.Row="1" Grid.Column="1"
+                             Width="200"
+                             HorizontalAlignment="Left"
+                             />
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                               
+                               Text="File:"
+                               VerticalAlignment="Center"
+                               
+                               />
+                        <TextBlock Grid.Row="2" Grid.Column="1"
+                           Name="fileName"    
+                           Text="Floral Wallpaper.pdf"
+                           VerticalAlignment="Center"
+                           />
+                        <TextBlock Grid.Row="3" Grid.Column="0"
+                               Text="Image Size:"
+                               />
+                        <WrapPanel Grid.Row="3" Grid.Column="1">
+                            <TextBlock Name="imageDimension" Text="40cm x 30cm"
+                                   />
+                            <TextBlock Text=" ("/>
+                            <TextBlock Name="imageResolution"
+                                   Text="300 dpi"
+                                   />
+                            <TextBlock Text=" , "
+                                   />
+                            <TextBlock Name="RGBPixel"
+                                   Text="RGB 8 Bit"
+                                   />
+                            <TextBlock Text=")"/>
+
+
+                        </WrapPanel>
+                        <TextBlock Grid.Row="4" Grid.Column="0"
+                               Text="Pages:"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1"
+                               Name="noOfPages"
+                               Text="5"/>
+                        <TextBlock Grid.Row="5" Grid.Column="0"
+                               Text="Pixels:"/>
+                        <WrapPanel Grid.Row="5" Grid.Column="1">
+                            <TextBlock Name="pixelWidth" Text="6000"/>
+                            <TextBlock Text=" x "/>
+                            <TextBlock Name="pixelHeight" Text="7220"/>
+
+                        </WrapPanel>
+                        <TextBlock Grid.Row="6" Grid.Column="0"
+                               Text="File Size:"/>
+                        <TextBlock Grid.Row="6" Grid.Column="1" Name="sizeOfFile" Text="12 mb"/>
+
+
+                    </Grid>
+                    <Grid Name="optionGrid" Width="320" Height="250" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="25,0,0,280">
+                        <TextBlock Text="Options" FontSize="12" VerticalAlignment="Top" Margin="12,40,0,0"/>
+                        <StackPanel Margin="15,65,0,0">
+                            <CheckBox IsChecked="True" Margin="0,0,0,0">After Rip, Hold for Operator Review</CheckBox>
+                            <CheckBox IsChecked="True" Margin="0,12,0,0">Print while rippin</CheckBox>
+                            <CheckBox IsChecked="True" Margin="0,12,0,0">Calculate Ink Usage and Media Wastage</CheckBox>
+                            <WrapPanel>
+                                <TextBlock Text="After Printing" Margin="0,15,0,0"/>
+                                <ComboBox Margin="30,12,0,0" Width="170">
+                                    <ComboBoxItem Content="Archive the Job" IsSelected="True"/>
+                                    <ComboBoxItem Content="item1"/>
+                                </ComboBox>
+                            </WrapPanel>
+                        </StackPanel>
+                        <Polyline Points="10,0 0,0 0,140 320,140 320,0 58,0" Stroke="LightGray" StrokeThickness="1"  VerticalAlignment="Top" Margin="0,50" >
+
+
+                        </Polyline>
+
+                    </Grid>
+                </Grid>
+
+
+
+
+
+            </TabItem>
+            <TabItem Name="printSizeProperties"  Header="Print Size" Margin="10,0,-35,0" Style="{StaticResource SpacedTab}">
+                <Grid>
+
+                    <Grid Name="printSizeSetting" Width="345" Height="140" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,20,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="250*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Print" VerticalAlignment="Center"/>
+                        <RadioButton Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" GroupName="pages">All Pages</RadioButton>
+                        <WrapPanel Grid.Row="1" Grid.Column="1">
+                            <RadioButton GroupName="pages" IsChecked="True">Range From:</RadioButton>
+                            <TextBox Margin="10,0,0,0" Width="50" Height="20"/>
+                            <TextBlock Text="To: " Margin="10,0,0,0"/>
+                            <TextBox Width="50" Height="20"/>
+                        </WrapPanel>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Copies:"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Width="100" HorizontalAlignment="Left"  Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Spacing:" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                        <Grid Grid.Row="3" Grid.Column="1">
+                            <WrapPanel  Margin="0,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\leftArrowGray.png" Width="8" Height="8" Margin="1,0,0,0"/>
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\rightArrowGray.png" Width="8" Height="8" Margin="2,0,0,0" />
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Canvas Width="20" Height="10" Background="LightGray" Margin="0,15,0,0" >
+                                    <Rectangle Width="8" Height="10" Stroke="DarkGray" StrokeThickness="1" HorizontalAlignment="Left"/>
+                                    <Rectangle Width="8" Height="10" Stroke="DarkGray" StrokeThickness="1"  Margin="12,0,0,0"/>
+                                </Canvas>
+                            </WrapPanel>
+                            <TextBox Width="60" Height="20" HorizontalAlignment="Left" Margin="30,0,0,0"/>
+                            <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="90,-10,0,0" Background="White">
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                            </Button>
+                            <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="90,10,0,0" Background="White">
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                            </Button>
+                            <TextBlock Text="cm" Margin="115,10,0,0"/>
+                            <WrapPanel Width="10" Height="30" Margin="30,0,0,0">
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="8" Height="8" Margin="0,5,0,0" />
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="8" Height="8" Margin="0,4,0,0" />
+                            </WrapPanel>
+                            <Canvas Width="8" Height="25" Background="LightGray" Margin="50,0,0,0">
+                                <Rectangle Width="8" Height="10" Stroke="DarkGray" StrokeThickness="1" HorizontalAlignment="Left"/>
+                                <Rectangle Width="8" Height="10" Stroke="DarkGray" StrokeThickness="1"  Margin="0,15,0,0"/>
+                            </Canvas>
+                            <TextBox Width="60" Height="20"  Margin="135,0,0,0"/>
+                            <Button Width="20" Height="10"  Margin="214,-10,0,0" Background="White">
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                            </Button>
+                            <Button Width="20" Height="10"  Margin="214,10,0,0" Background="White">
+                                <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                            </Button>
+                            <TextBlock Text="cm" Margin="265,10,0,0"/>
+                        </Grid>
+
+
+                    </Grid>
+                    <Grid Name="mediaSizeGrid" Width="345" Height="150" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="25,0,0,440">
+                        <TextBlock Text="Media Size" FontSize="12" VerticalAlignment="Top" Margin="12,-10,0,0"/>
+                        <Grid Margin="12,15,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="60*"/>
+                                <RowDefinition Height="60*"/>
+                                <RowDefinition Height="50*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*"/>
+                                <ColumnDefinition Width="250*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Type:"/>
+                            <WrapPanel Grid.Row="0" Grid.Column="1">
+                                <RadioButton GroupName="mediaType">Roll Fed</RadioButton>
+                                <RadioButton GroupName="mediaType" Margin="20,0,0,0" IsChecked="True">Cut Sheet</RadioButton>
+
+                            </WrapPanel>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Size:"/>
+                            <WrapPanel Grid.Row="1" Grid.Column="1">
+                                <Border Width="20" Height="30" BorderBrush="DarkGray" BorderThickness="1">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\horizontalLine.jpg" VerticalAlignment="Top"/>
+                                </Border>
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="cm" Margin="5,5,0,0"/>
+                                <Button Width="100" Margin="10,0,0,0" Background="White">Get Media Size...</Button>
+                            </WrapPanel>
+                            <WrapPanel Grid.Row="2" Grid.Column="1">
+                                <Border Width="20" Height="30" BorderBrush="DarkGray" BorderThickness="1">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\verticalLine.jpg" HorizontalAlignment="Left" Height="30"/>
+                                </Border>
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="cm" Margin="5,5,0,0"/>
+                            </WrapPanel>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Print Area:"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Name="printArea" Text="395 cm x 205 cm"/>
+
+                        </Grid>
+                        <Polyline Points="10,0 0,0 0,150 345,150 345,0 58,0" Stroke="LightGray" StrokeThickness="1"  VerticalAlignment="Top" Margin="0,0,-10,0"  >
+
+
+                        </Polyline>
+
+                    </Grid>
+
+                    <Grid Name="printSizeGrid" Width="345" Height="160" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="25,0,0,260">
+                        <TextBlock Text="Print Size" FontSize="12" VerticalAlignment="Top" Margin="12,-10,0,0"/>
+                        <Grid Margin="12,15,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="30*"/>
+                                <RowDefinition Height="30*"/>
+                            </Grid.RowDefinitions>
+
+                            <RadioButton Grid.Row="0" GroupName="sizeOfImage" >Actual Size</RadioButton>
+                            <RadioButton Grid.Row="1" GroupName="sizeOfImage" IsChecked="True">Fit To Media</RadioButton>
+                            <WrapPanel Grid.Row="2">
+                                <RadioButton  GroupName="sizeOfImage">Scale</RadioButton>
+                                <CheckBox IsChecked="True" Margin="35,0,0,0">Maintain Proportions</CheckBox>
+                            </WrapPanel>
+                            <WrapPanel Grid.Row="3" Margin="80,0,0,0">
+                                <Border Width="20" Height="25" BorderBrush="DarkGray" BorderThickness="1">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\horizontalLine.jpg" VerticalAlignment="Top"/>
+                                </Border>
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="cm" Margin="5,5,0,0"/>
+
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="%" Margin="5,5,0,0"/>
+                            </WrapPanel>
+
+                            <WrapPanel Grid.Row="4" Margin="80,0,0,0">
+                                <Border Width="20" Height="25" BorderBrush="DarkGray" BorderThickness="1">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\horizontalLine.jpg" VerticalAlignment="Top"/>
+                                </Border>
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="cm" Margin="5,5,0,0"/>
+
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="%" Margin="5,5,0,0"/>
+                            </WrapPanel>
+
+
+
+                        </Grid>
+                        <Polyline Points="10,0 0,0 0,160 345,160 345,0 58,0" Stroke="LightGray" StrokeThickness="1"  VerticalAlignment="Top"  >
+
+
+                        </Polyline>
+
+                    </Grid>
+                    <Grid Name="positionAndOrientationGrid" Width="345" Height="160" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="25,0,0,80">
+                        <TextBlock Text="Position &amp; Orientation" FontSize="12" VerticalAlignment="Top" Margin="12,-10,0,0"/>
+                        <Grid Margin="12,15,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="77*"/>
+                                <ColumnDefinition Width="253*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="X:"/>
+                            <WrapPanel Grid.Row="0" Grid.Column="1">
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left" />
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="cm" Margin="5,5,0,0"/>
+                            </WrapPanel>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Y:" VerticalAlignment="Bottom" RenderTransformOrigin="0.372,-1.75" Margin="0,0,0,10" />
+                            <WrapPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                                <TextBox Width="60" Height="20" HorizontalAlignment="Left"  />
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="0,-10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\upwardArrowGray.png" Width="12" Height="8"/>
+                                </Button>
+                                <Button Width="20" Height="10" HorizontalAlignment="Left" Margin="-20,10,0,0" Background="White">
+                                    <Image Source="C:\Users\hp\Desktop\Mohit\LayoutCustomization\LayoutCustomization\Images\downwardArrowGray.png" Width="12" Height="8" VerticalAlignment="Top"/>
+                                </Button>
+                                <TextBlock Text="cm" Margin="5,5,0,0"/>
+                            </WrapPanel>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="Placement:" Margin="120,0,0,0"/>
+                            <TextBlock Name="placementPosition" Grid.Row="0" Grid.Column="1" Text="Bottom-Right" Margin="180,0,0,0"/>
+                            <Grid Grid.Row="0" Grid.Column="1"  Width="50" Height="50" Margin="50,0,0,0" VerticalAlignment="Bottom">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"/>
+                                    <RowDefinition Height="10*"/>
+                                    <RowDefinition Height="10*"/>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" Grid.Column="0" BorderBrush="DarkGray" BorderThickness="1,1,0,1">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1,1,0,0">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="2" BorderBrush="DarkGray" BorderThickness="1,1,1,0">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="0" BorderBrush="DarkGray" BorderThickness="1,0,0,0">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1,1,0,0">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="2" BorderBrush="DarkGray" BorderThickness="1,1,1,0">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="0" BorderBrush="DarkGray" BorderThickness="1,1,0,1">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1,1,0,1">
+                                    <RadioButton GroupName="originSetup"/>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="2" BorderBrush="DarkGray" BorderThickness="1,1,1,1">
+                                    <RadioButton GroupName="originSetup" IsChecked="True"/>
+                                </Border>
+                            </Grid>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Rotate:" Margin="0,10,0,0"/>
+                            <WrapPanel Grid.Row="1" Grid.Column="1" Margin="0,10,0,0">
+                                <RadioButton GroupName="rotationAngle">
+                                    <TextBlock>
+                                        <Run>0</Run>
+                                        <Run Typography.Variants="Superscript">0</Run>
+                                    </TextBlock>
+                                </RadioButton>
+                                <RadioButton GroupName="rotationAngle" Margin="20,0,0,0">
+                                    <TextBlock>
+                                        <Run>90</Run>
+                                        <Run Typography.Variants="Superscript">0</Run>
+                                    </TextBlock>
+                                </RadioButton>
+                                <RadioButton GroupName="rotationAngle" Margin="20,0,0,0">
+                                    <TextBlock>
+                                        <Run>180</Run>
+                                        <Run Typography.Variants="Superscript">0</Run>
+                                    </TextBlock>
+                                </RadioButton>
+                                <RadioButton GroupName="rotationAngle" Margin="20,0,0,0">
+                                    <TextBlock>
+                                        <Run>270</Run>
+                                        <Run Typography.Variants="Superscript">0</Run>
+                                    </TextBlock>
+                                </RadioButton>
+                            </WrapPanel>
+                            <CheckBox Grid.Row="3" Grid.Column="1">Mirror Content</CheckBox>
+
+
+
+                        </Grid>
+                        <Polyline Points="10,0 0,0 0,160 345,160 345,0 58,0" Stroke="LightGray" StrokeThickness="1"  VerticalAlignment="Top"  >
+
+
+                        </Polyline>
+
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Name="colorManagementProperties"
+                     Margin="10,0,-35,0"
+                     Header="Color Management" 
+                     Style="{StaticResource SpacedTab}" >
+                
+                <StackPanel Name="panelColorManagementProperties" HorizontalAlignment="Left" Margin="25,0,0,0"></StackPanel>
+            </TabItem>
+
+            <TabItem Name="spotColorProperties"
+                     Margin="10,0,-35,0"
+                     Header="Spot Color"
+                     Style="{StaticResource SpacedTab}">
+                <StackPanel Name="panelSpotColorProperties" HorizontalAlignment="Left" Margin="25,0,0,0"></StackPanel>
+            </TabItem>
+
+            <TabItem Name="cropMarksProperties"
+                     Margin="10,0,-35,0"
+                     Header="Crop Marks"
+                     Style="{StaticResource SpacedTab}">
+            </TabItem>
+
+            <TabItem Name="multiLayerProperties"
+                     Header="Multi Layer"
+                     Margin="10,0,-35,0"
+                     Style="{StaticResource SpacedTab}">
+
+            </TabItem>
+
+
+            <TabItem Name="tilingProperties"
+                     Header="Tiling"
+                     Margin="10,0,-35,0"
+                     Style="{StaticResource SpacedTab}">
+
+            </TabItem>
+
+            <TabItem Name="stepRepeatProperties"
+                     Header="Step &amp; Repeat"
+                     Margin="10,0,-35,0"
+                     Style="{StaticResource SpacedTab}">
+
+            </TabItem>
+
+
+        </TabControl>
+
+
+
+    </Grid>
+</Window>
